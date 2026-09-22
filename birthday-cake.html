@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Birthday Cake 🎂</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      font-family: Georgia, serif;
+      color: white;
+      background:
+        radial-gradient(circle at top, #ff9bcf 0%, transparent 35%),
+        linear-gradient(135deg, #24103f, #76145e, #dc397f);
+    }
+
+    .background {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .heart {
+      position: absolute;
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 22px;
+      animation: float 7s linear infinite;
+    }
+
+    .heart:nth-child(1) { left: 10%; animation-delay: 0s; }
+    .heart:nth-child(2) { left: 25%; animation-delay: 2s; }
+    .heart:nth-child(3) { left: 48%; animation-delay: 4s; }
+    .heart:nth-child(4) { left: 70%; animation-delay: 1s; }
+    .heart:nth-child(5) { left: 88%; animation-delay: 3s; }
+
+    @keyframes float {
+      from {
+        transform: translateY(110vh) rotate(0deg);
+        opacity: 0;
+      }
+      20% { opacity: 1; }
+      to {
+        transform: translateY(-20vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    .card {
+      position: relative;
+      z-index: 1;
+      width: min(92%, 600px);
+      padding: 42px 25px;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 30px;
+      background: rgba(255, 255, 255, 0.13);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(12px);
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(2.2rem, 8vw, 4rem);
+      text-shadow: 0 0 18px #ffb5df;
+    }
+
+    .subtitle {
+      margin-bottom: 35px;
+      font-size: 1.15rem;
+    }
+
+    .cake {
+      position: relative;
+      width: 260px;
+      height: 210px;
+      margin: 0 auto 30px;
+    }
+
+    .layer {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 230px;
+      height: 65px;
+      border-radius: 16px 16px 22px 22px;
+      background: linear-gradient(#ff9bba, #e85b88);
+      box-shadow: inset 0 -10px rgba(150, 20, 75, 0.16),
+                  0 8px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .layer::after {
+      content: "•  •  •  •  •  •  •";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 8px;
+      color: #fff1f7;
+      letter-spacing: 7px;
+    }
+
+    .bottom { bottom: 0; }
+    .middle {
+      bottom: 48px;
+      width: 205px;
+      background: linear-gradient(#ffc0d5, #f279a3);
+    }
+
+    .top {
+      bottom: 96px;
+      width: 180px;
+      background: linear-gradient(#ffd9e5, #ff99bd);
+    }
+
+    .icing {
+      position: absolute;
+      top: 2px;
+      left: 0;
+      width: 100%;
+      height: 22px;
+      border-radius: 50%;
+      background: #fff4fa;
+    }
+
+    .candle {
+      position: absolute;
+      bottom: 158px;
+      left: 50%;
+      width: 18px;
+      height: 62px;
+      transform: translateX(-50%);
+      border-radius: 5px;
+      background: repeating-linear-gradient(
+        135deg,
+        #fff 0 8px,
+        #ff6f9c 8px 16px
+      );
+    }
+
+    .flame {
+      position: absolute;
+      top: -34px;
+      left: 50%;
+      width: 25px;
+      height: 35px;
+      transform: translateX(-50%);
+      border-radius: 50% 50% 50% 0;
+      background: #ffd166;
+      box-shadow: 0 0 25px 10px rgba(255, 190, 50, 0.55);
+      animation: flicker 0.8s infinite alternate;
+    }
+
+    @keyframes flicker {
+      from { transform: translateX(-50%) rotate(-5deg) scale(1); }
+      to { transform: translateX(-50%) rotate(6deg) scale(1.12); }
+    }
+
+    button {
+      border: 0;
+      padding: 14px 24px;
+      border-radius: 999px;
+      color: #701044;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      background: #fff;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    button:hover {
+      transform: translateY(-3px) scale(1.03);
+      background: #ffe3f0;
+    }
+
+    .wish {
+      margin-top: 24px;
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+
+    .music-note {
+      margin-top: 14px;
+      opacity: 0.8;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="background" aria-hidden="true">
+    <span class="heart">♥</span>
+    <span class="heart">♥</span>
+    <span class="heart">♥</span>
+    <span class="heart">♥</span>
+    <span class="heart">♥</span>
+  </div>
+
+  <main class="card">
+    <h1>Happy Birthday! 🎉</h1>
+    <div class="subtitle">A little cake, a little magic, and lots of feels 💖</div>
+
+    <div class="cake" aria-label="Birthday cake">
+      <div class="candle">
+        <div class="flame"></div>
+      </div>
+      <div class="layer top"><div class="icing"></div></div>
+      <div class="layer middle"></div>
+      <div class="layer bottom"></div>
+    </div>
+
+    <button id="musicButton">▶ Play Birthday Music</button>
+
+    <audio id="birthdayMusic" loop>
+      <source src="feels.mp3" type="audio/mpeg" />
+      Your browser does not support audio.
+    </audio>
+
+    <p class="wish">
+      May your day be filled with love, laughter,<br />
+      beautiful memories, and all the best feels ✨
+    </p>
+
+    <div class="music-note">Tap the button to start the music 🎵</div>
+  </main>
+
+  <script>
+    const music = document.getElementById("birthdayMusic");
+    const button = document.getElementById("musicButton");
+
+    button.addEventListener("click", async () => {
+      if (music.paused) {
+        await music.play();
+        button.textContent = "⏸ Pause Music";
+      } else {
+        music.pause();
+        button.textContent = "▶ Play Birthday Music";
+      }
+    });
+  </script>
+</body>
+  </html>
